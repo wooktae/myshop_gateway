@@ -11,15 +11,19 @@ spring:
         - id: order
           uri: http://localhost:8081
           predicates:
-            - Path=/orders/** 
+            - Path=/orders/**
         - id: delivery
           uri: http://localhost:8082
           predicates:
-            - Path=/deliveries/**/cancellations/** 
+            - Path=/deliveries/**,/cancellations/**
         - id: customercenter
           uri: http://localhost:8083
           predicates:
-            - Path= /myPages/**
+            - Path= /myPages/**,/db_myPage/**
+        - id: notice
+          uri: http://localhost:8084
+          predicates:
+            - Path= /notices/**,/db_notice/**
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -42,15 +46,19 @@ spring:
         - id: order
           uri: http://order:8080
           predicates:
-            - Path=/orders/** 
+            - Path=/orders/**
         - id: delivery
           uri: http://delivery:8080
           predicates:
-            - Path=/deliveries/**/cancellations/** 
+            - Path=/deliveries/**,/cancellations/**
         - id: customercenter
           uri: http://customercenter:8080
           predicates:
-            - Path= /myPages/**
+            - Path= /myPages/**,/db_customercenter/**
+        - id: notice
+          uri: http://notice:8080
+          predicates:
+            - Path= /notices/**,/db_notice/**
       globalcors:
         corsConfigurations:
           '[/**]':
